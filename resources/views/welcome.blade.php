@@ -18,7 +18,7 @@
     {{-- Services --}}
     <section class="services" id="services">
         <div class="container py-5">
-            <h2 class="text-center mb-5 fw-bold text-success">Our Services</h2>
+            <h2 class="text-center mb-5 fw-bold text-success text-uppercase">Our Services</h2>
 
             <div class="row">
                 <div class="col-md-4 service p-4">
