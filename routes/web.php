@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ScheduleController as AdminScheduleController;
 use App\Http\Controllers\ApplyDoctorController;
 use App\Http\Controllers\Doctor\Schedule\ScheduleController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Patient\AppointmentController;
 use App\Http\Controllers\Patient\DoctorController;
 use App\Http\Controllers\SpecialtyController;
 use Illuminate\Support\Facades\Auth;
@@ -37,6 +38,8 @@ Route::post('/apply-doctor/store', [ApplyDoctorController::class, 'store'])->nam
 Route::middleware(['auth', 'user-role:patient'])->group(function() {
     Route::get('/home', [HomeController::class, 'patientHome'])->name('patient.home');
     Route::get('/doctors', [DoctorController::class, 'index'])->name('patient.doctors');
+    Route::post('/appointments/store', [AppointmentController::class, 'store'])->name('patient.appointment.store');
+    Route::get('/appointments', [AppointmentController::class, 'index'])->name('patient.appointments');
 });
 
 // Doctor

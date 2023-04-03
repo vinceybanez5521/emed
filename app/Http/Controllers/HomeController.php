@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\Patient;
 use App\Models\Specialty;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -31,7 +33,9 @@ class HomeController extends Controller
     // }
 
     public function patientHome() {
-        return view('patient.home');
+        $patient_id = Patient::select()->where('user_id', Auth::user()->id)->get()->first()->id;
+        $appointmentsTotal = Appointment::select()->where('patient_id', $patient_id)->count();
+        return view('patient.home', ['appointmentsTotal' => $appointmentsTotal]);
     }
 
     public function doctorHome() {

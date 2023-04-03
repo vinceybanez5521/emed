@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Patient;
 
 use App\Http\Controllers\Controller;
 use App\Models\Doctor;
+use App\Models\Schedule;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
@@ -13,8 +14,8 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $data = Doctor::paginate(10);
-        return view('patient.doctor.index', ['doctors' => $data]);
+        $data = Schedule::orderBy('date')->paginate(10);
+        return view('patient.doctor.index', ['schedules' => $data]);
     }
 
     /**

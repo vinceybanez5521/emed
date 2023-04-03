@@ -22,7 +22,7 @@
                         <a class="nav-link text-success text-decoration-none" href="{{route('patient.home')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-success text-decoration-none" href="">Appointments</a>
+                        <a class="nav-link text-success text-decoration-none" href="{{route('patient.appointments')}}">Appointments</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-success text-decoration-none" href="{{route('patient.doctors')}}">Doctors</a>
