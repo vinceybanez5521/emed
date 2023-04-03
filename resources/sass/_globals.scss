@@ -1,0 +1,25 @@
+.required {
+    color: red;
+}
+
+.back {
+    position: absolute;
+    top: 4%;
+    left: 10%;
+    cursor: pointer;
+    font-size: 1.3rem;
+
+    @media (min-width: 576px) {
+        top: 10%;
+    }
+}
+
+td {
+    vertical-align: middle;
+}
+
+.deleteBtn {
+    border: none;
+    background-color: unset;
+    display: inline;
+}

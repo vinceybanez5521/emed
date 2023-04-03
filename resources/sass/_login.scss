@@ -1,0 +1,26 @@
+.login {
+    height: 100vh;
+
+    .card,
+    .card-header,
+    .card-body {
+        background-color: unset !important;
+    }
+
+    .row {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        box-shadow: none;
+        outline: none;
+        border: none;
+
+        &-header {
+            background-color: white;
+        }
+    }
+}
