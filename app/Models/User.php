@@ -49,4 +49,5 @@ class User extends Authenticatable
             get: fn ($role) => ["patient", "doctor", "admin"][$role],
         );
     }
+    
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DoctorController as AdminDoctorController;
 use App\Http\Controllers\Admin\PatientController;
 use App\Http\Controllers\ApplyDoctorController;
+use App\Http\Controllers\Doctor\Schedule\ScheduleController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Patient\DoctorController;
 use App\Http\Controllers\SpecialtyController;
@@ -40,6 +41,8 @@ Route::middleware(['auth', 'user-role:patient'])->group(function() {
 // Doctor
 Route::middleware(['auth', 'user-role:doctor'])->group(function() {
     Route::get('/doctor/home', [HomeController::class, 'doctorHome'])->name('doctor.home');
+    Route::get('/doctor/schedules', [ScheduleController::class, 'index'])->name('doctor.schedules');
+    Route::post('/doctor/schedules/store', [ScheduleController::class, 'store'])->name('doctor.schedules.store');
 });
 
 // Admin

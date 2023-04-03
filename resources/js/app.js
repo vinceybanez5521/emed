@@ -5,6 +5,8 @@ sidebarToggle.addEventListener("click", (e) => {
     sidebar.classList.toggle("toggled");
 });
 
+import "./bootstrap";
+
 $(document).ready(function () {
     $("#deleteSpecialtyModal").on("show.bs.modal", function (event) {
         const button = $(event.relatedTarget);
@@ -14,5 +16,3 @@ $(document).ready(function () {
         modal.find(".modal-body #spec_id").val(specialtyId);
     });
 });
-
-import "./bootstrap";

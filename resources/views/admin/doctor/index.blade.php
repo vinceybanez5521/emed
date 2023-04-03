@@ -30,8 +30,10 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>ID</th>
+                                <th>Photo</th>
                                 <th>Full Name</th>
+                                <th>Specialty</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -39,8 +41,16 @@
                             @foreach ($doctors as $doctor)
                                 <tr>
                                     <td>{{$i++}}</td>
-                                    <td>{{$doctor->id}}</td>
+                                    <td>
+                                         @if ($doctor->photo === null)
+                                            <img src="{{asset('images/doctor-avatar.png')}}" alt="{{$doctor->first_name}}'s Photo" class="person-img">
+                                        @else
+                                            <img src="{{asset('storage/photo_uploads/' . $doctor->photo)}}" alt="{{$doctor->first_name}}'s Photo" class="person-img">
+                                        @endif
+                                    </td>
                                     <td>{{$doctor->full_name}}</td>
+                                    <td>{{$doctor->specialty->name}}</td>
+                                    <td>{{$doctor->status}}</td>
                                     <td>
                                         
                                     </td>

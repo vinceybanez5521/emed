@@ -30,19 +30,19 @@
 
                 {{-- Doctor --}}
                 @elseif (Auth::check() && Auth::user()->role === 'doctor')
-                    <li class="nav-item ms-0 ms-md-3">
+                    <li class="nav-item">
                         <a class="nav-link text-success text-decoration-none" href="{{route('doctor.home')}}">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ms-0 ms-md-3">
                         <a class="nav-link text-success text-decoration-none" href="">Appointments</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-success text-decoration-none" href="">Schedule</a>
+                    <li class="nav-item ms-0 ms-md-3">
+                        <a class="nav-link text-success text-decoration-none" href="{{route('doctor.schedules')}}">Schedules</a>
                     </li>
                 @endif
-                <li class="nav-item dropdown">
+                <li class="nav-item ms-0 ms-md-3 dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle text-success" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        My Account
+                        <img src="{{asset('images/user-avatar.png')}}" class="user-avatar" alt="">
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

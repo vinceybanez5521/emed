@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Specialty;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SpecialtyController extends Controller
 {
@@ -12,7 +13,12 @@ class SpecialtyController extends Controller
      */
     public function index()
     {
-        $data = Specialty::paginate(10);
+        // $data = Specialty::paginate(10);
+        $data = DB::table('specialties')
+                    ->leftJoin('doctors', 'specialties.id', '=', 'doctors.specialty_id')
+                    ->select('specialties.id', 'specialties.name', 'specialties.description', DB::raw('count(doctors.id) as total'))
+                    ->groupBy('specialties.id')
+                    ->paginate(10);
         $data->appends(request()->all());
         $i = $data->firstItem();
         return view('admin.specialty.index', ['specialties' => $data, 'i' => $i]);

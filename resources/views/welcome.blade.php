@@ -11,6 +11,7 @@
                 <a href="{{route('apply-doctor')}}" class="btn btn-success btn-lg px-5 ms-4">Join Us</a>
             </div>
         </div>
+        <i class="fas fa-user"></i>
     </div>
 
 @include('partials.footer')

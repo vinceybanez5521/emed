@@ -136,6 +136,21 @@
                             @enderror
                         </div>
                         <div class="mb-3">
+                            <label for="specialty" class="form-label">Specialty <span class="required">*</span></label>
+                            <select class="form-select @error('specialty') is-invalid @enderror" name="specialty">
+                                <option selected disabled value="">Select specialty</option>
+                                @foreach ($specialties as $specialty)
+                                    <option value="{{$specialty->id}}" @if(old('specialty') == $specialty->id) {{'selected'}} @endif>{{$specialty->name}}</option>
+                                @endforeach
+                            </select>
+
+                            @error('specialty')
+                                <span class="invalid-feedback">
+                                    {{ $message; }}
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
                             <label for="email" class="form-label">Email Address <span class="required">*</span></label>
                             <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" value="{{old('email')}}">
 

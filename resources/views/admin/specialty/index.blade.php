@@ -30,9 +30,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>ID</th>
                                 <th>Name</th>
                                 <th>Description</th>
+                                <th>Total Doctors</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -40,9 +40,9 @@
                             @foreach ($specialties as $specialty)
                                 <tr>
                                     <td>{{$i++}}</td>
-                                    <td>{{$specialty->id}}</td>
                                     <td>{{$specialty->name}}</td>
                                     <td>{{$specialty->description}}</td>
+                                    <td>{{$specialty->total}}</td>
                                     <td>
                                         <div class="d-flex">
                                             <a href="{{route('admin.specialties.edit', ['id' => $specialty->id])}}" class="text-primary">

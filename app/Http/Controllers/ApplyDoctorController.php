@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctor;
+use App\Models\Specialty;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -22,7 +23,8 @@ class ApplyDoctorController extends Controller
      */
     public function create()
     {
-        return view('apply-doctor');
+        $specialties = Specialty::all();
+        return view('apply-doctor', ['specialties' => $specialties]);
     }
 
     /**
@@ -43,10 +45,12 @@ class ApplyDoctorController extends Controller
             "password" => ['required', 'confirmed', 'min:8', 'max:15'],
             "photo" => ['image', 'mimes:jpeg,jpg,png', 'max:2048'],
             "prc_photo" => ['required', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
+            "specialty" => ['required'],
         ]);
 
         $data = $request->all();
-        // dd($data);
+        $data['specialty_id'] = $data['specialty'];
+        // dd($data['specialty_id']);
 
         try {
             $loginData['email'] = $data['email'];
