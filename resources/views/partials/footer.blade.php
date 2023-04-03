@@ -51,7 +51,7 @@
                 <div class="col-md-3">
                     <h6 class="text-uppercase mb-4 font-weight-bold text-">Contact</h6>
                     <p class="text-success">
-                        <i class="fas fa-home mr-3"></i> street address, ny 333, ph
+                        <i class="fas fa-home mr-3"></i> ny 333, ph
                     </p>
                     <p class="text-success text-decoration-none">
                         <i class="fas fa-envelope mr-3"></i> example@email.com
@@ -82,10 +82,7 @@
 
             <hr class="mb-4">
 
-            <div class="row allign-items-center">
-                <div class="col-md-7 col-lg-8 text-center">
-                <p> Copyright &copy; 2023 <a href="{{url("/")}}" class="text-decoration-none text-white">eMED</a>. All rights reserved.</p>
-            </div>
+            <p class="lead text-center"> Copyright &copy; 2023 <a href="{{url("/")}}" class="text-decoration-none text-white">eMED</a>. All rights reserved.</p>
         </div>
     </footer>
 
