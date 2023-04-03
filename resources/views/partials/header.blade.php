@@ -12,15 +12,15 @@
     {{-- Icon --}}
     <link rel="shortcut icon" href="{{asset('images/logo-circle.png')}}" type="image/x-icon">
 
-    {{-- Font Awesome --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss'])
+
+    {{-- Fontawesome Kit --}}
+    <script src="https://kit.fontawesome.com/621dec77d6.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="app">

@@ -10,3 +10,8 @@
         align-items: center;
     }
 }
+
+p:not(p.text-center) {
+    text-align: justify;
+    text-align-last: left;
+}
