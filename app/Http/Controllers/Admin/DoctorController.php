@@ -14,8 +14,9 @@ class DoctorController extends Controller
     public function index()
     {
         $data = Doctor::paginate(10);
+        $total = Doctor::all()->count();
         $i = $data->firstItem();
-        return view('admin.doctor.index', ['doctors' => $data, 'i' => $i]);
+        return view('admin.doctor.index', ['doctors' => $data, 'i' => $i, 'total' => $total]);
     }
 
     /**

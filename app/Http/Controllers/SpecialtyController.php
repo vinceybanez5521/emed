@@ -19,9 +19,10 @@ class SpecialtyController extends Controller
                     ->select('specialties.id', 'specialties.name', 'specialties.description', DB::raw('count(doctors.id) as total'))
                     ->groupBy('specialties.id')
                     ->paginate(10);
+        $total = Specialty::all()->count();
         $data->appends(request()->all());
         $i = $data->firstItem();
-        return view('admin.specialty.index', ['specialties' => $data, 'i' => $i]);
+        return view('admin.specialty.index', ['specialties' => $data, 'i' => $i, 'total' => $total]);
     }
 
     /**

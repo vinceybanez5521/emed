@@ -14,8 +14,9 @@ class PatientController extends Controller
     public function index()
     {
         $data = Patient::paginate(10);
+        $total = Patient::all()->count();
         $i = $data->firstItem();
-        return view('admin.patient.index', ['patients' => $data, 'i' => $i]);
+        return view('admin.patient.index', ['patients' => $data, 'i' => $i, 'total' => $total]);
     }
 
     /**

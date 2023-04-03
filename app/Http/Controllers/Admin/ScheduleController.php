@@ -14,8 +14,9 @@ class ScheduleController extends Controller
     public function index()
     {
         $data = Schedule::orderBy('date')->paginate(10);
+        $total = Schedule::all()->count();
         $i = $data->firstItem();
-        return view('admin.schedule.index', ['schedules' => $data, 'i' => $i]);
+        return view('admin.schedule.index', ['schedules' => $data, 'i' => $i, 'total' => $total]);
     }
 
     /**

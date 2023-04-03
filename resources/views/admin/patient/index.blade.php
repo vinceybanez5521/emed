@@ -16,7 +16,7 @@
                 @endif
 
                 <div class="d-block d-md-flex justify-content-between align-items-center">
-                    <p class="lead">Total: <strong>0</strong></p>
+                    <p class="lead">Total: <span class="fw-bold">{{ $total }}</span></p>
                     <form action="">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Enter keywords">
@@ -31,6 +31,8 @@
                             <tr>
                                 <th>#</th>
                                 <th>Full Name</th>
+                                <th>Email</th>
+                                <th>Gender</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -39,6 +41,8 @@
                                 <tr>
                                     <td>{{$i++}}</td>
                                     <td>{{$patient->full_name}}</td>
+                                    <td>{{$patient->user->email}}</td>
+                                    <td>{{$patient->gender}}</td>
                                     <td>
                                         
                                     </td>

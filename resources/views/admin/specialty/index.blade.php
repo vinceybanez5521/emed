@@ -16,7 +16,7 @@
                 @endif
 
                 <div class="d-block d-md-flex justify-content-between align-items-center">
-                    <p class="lead">Total: <strong>0</strong></p>
+                    <p class="lead">Total: <span class="fw-bold">{{ $total }}</span></p>
                     <form action="">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Enter keywords">
