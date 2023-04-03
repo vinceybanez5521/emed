@@ -16,8 +16,7 @@ class ScheduleController extends Controller
     public function index()
     {
         $doctor_id = Doctor::select()->where('user_id', Auth::user()->id)->get()->first()->id;
-
-        $data = Schedule::where('doctor_id', $doctor_id)->paginate(10);
+        $data = Schedule::where('doctor_id', $doctor_id)->orderBy('date', 'desc')->paginate(10);
         $i = $data->firstItem();
         return view('doctor.schedule.index', ['schedules' => $data, 'i' => $i]);
     }

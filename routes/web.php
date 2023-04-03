@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DoctorController as AdminDoctorController;
 use App\Http\Controllers\Admin\PatientController;
+use App\Http\Controllers\Admin\ScheduleController as AdminScheduleController;
 use App\Http\Controllers\ApplyDoctorController;
 use App\Http\Controllers\Doctor\Schedule\ScheduleController;
 use App\Http\Controllers\HomeController;
@@ -62,5 +63,8 @@ Route::middleware(['auth', 'user-role:admin'])->group(function() {
 
     // Patients
     Route::get('/admin/patients', [PatientController::class, 'index'])->name('admin.patients');
+
+    // Schedules
+    Route::get('/admin/schedules', [AdminScheduleController::class, 'index'])->name('admin.schedules');
 });
 

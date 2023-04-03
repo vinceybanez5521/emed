@@ -12,7 +12,7 @@
             <a class="nav-link text-white {{request()->is('admin/appointments*') ? 'active' : ''}}" href="#">Appointments</a>
         </li>
         <li class="nav-item mx-2 rounded">
-            <a class="nav-link text-white {{request()->is('admin/appointments*') ? 'active' : ''}}" href="#">Schedules</a>
+            <a class="nav-link text-white {{request()->is('admin/schedules*') ? 'active' : ''}}" href="{{route('admin.schedules')}}">Schedules</a>
         </li>
         <li class="nav-item mx-2 rounded">
             <a class="nav-link text-white {{request()->is('admin/doctors*') ? 'active' : ''}}" href="{{route('admin.doctors')}}">Doctors</a>
