@@ -15,7 +15,7 @@
                 @endif
 
                 <div class="d-block d-md-flex justify-content-between align-items-center">
-                    <p class="lead">Total: <span class="fw-bold">{{ $total }}</span></p>
+                    <p class="lead">Total: <span class="fw-bold">{{ $totalSchedules }}</span></p>
                     <form action="">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Enter keywords">
@@ -50,7 +50,7 @@
                                     </td>
                                     <td>{{$schedule->doctor->full_name}}</td>
                                     <td>{{$schedule->date}}</td>
-                                    <td>0</td>
+                                    <td>{{$schedule->total}}</td>
                                     <td>{{$schedule->status}}</td>
                                     <td>
                                         
@@ -61,7 +61,7 @@
                     </table>
                 </div>
 
-                {{-- {{$specialties->links()}} --}}
+                {{$schedules->links()}}
             </div>
         </div>
     </div>

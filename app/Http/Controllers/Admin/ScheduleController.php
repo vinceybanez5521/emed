@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Schedule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ScheduleController extends Controller
 {
@@ -13,10 +14,17 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        $data = Schedule::orderBy('date')->paginate(10);
-        $total = Schedule::all()->count();
+        $data = Schedule::join('doctors', 'doctors.id', '=', 'schedules.doctor_id')
+                        ->leftJoin('appointments', 'appointments.schedule_id', '=', 'schedules.id')
+                        ->select('schedules.*', DB::raw('count(appointments.id) as total'))
+                        ->groupBy('schedules.id')
+                        ->paginate(10);     
+        // dd($data);   
         $i = $data->firstItem();
-        return view('admin.schedule.index', ['schedules' => $data, 'i' => $i, 'total' => $total]);
+
+        $totalSchedules = Schedule::all()->count();
+        
+        return view('admin.schedule.index', ['schedules' => $data, 'i' => $i, 'totalSchedules' => $totalSchedules]);
     }
 
     /**
