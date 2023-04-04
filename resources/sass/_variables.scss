@@ -2,6 +2,16 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-sans-serif: "Nunito", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+
+$green: #198754;
+
+// Navbar toggle icon
+$navbar-toggler-focus-width: none;
+$navbar-light-color: $green;
+$navbar-light-toggler-border-color: unset;
+$navbar-light-brand-color: unset;
+$navbar-light-brand-hover-color: unset;
+$navbar-light-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-light-color}' stroke-linecap='square' stroke-miterlimit='10' stroke-width='5' d='M4 7h22M4 15h22M4 23h22'/></svg>");
