@@ -6,8 +6,21 @@
             <div class="card-header">
                 <h2 class="card-title">Home</h2>
             </div>
-            <div class="card-body">
-                <img src="" alt="" class="img-fluid">
+            <div class="card-body mh-50">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="summary">
+                            <p class="text-success lead">Schedules</p>
+                            <p class="total">{{$schedulesTotal}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="summary">
+                            <p class="text-success lead">Appointments</p>
+                            <p class="total">{{$appointmentsTotal}}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

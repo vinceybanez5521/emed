@@ -7,6 +7,7 @@ use App\Models\Doctor;
 use App\Models\Schedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ScheduleController extends Controller
 {
@@ -16,7 +17,17 @@ class ScheduleController extends Controller
     public function index()
     {
         $doctor_id = Doctor::select()->where('user_id', Auth::user()->id)->get()->first()->id;
-        $data = Schedule::where('doctor_id', $doctor_id)->orderBy('date', 'desc')->paginate(10);
+
+        $data = Schedule
+                    ::leftJoin('appointments', 'schedules.id', '=', 'appointments.schedule_id')
+                    ->select('schedules.id', 'schedules.date', 'schedules.status', DB::raw('count(appointments.id) as total'))
+                    ->groupBy('schedules.id')
+                    ->where('schedules.doctor_id', $doctor_id)
+                    ->orderBy('schedules.date')
+                    ->paginate(10);
+
+        // dd($data);
+
         $i = $data->firstItem();
         return view('doctor.schedule.index', ['schedules' => $data, 'i' => $i]);
     }

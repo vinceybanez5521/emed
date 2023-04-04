@@ -20,7 +20,7 @@ class Schedule extends Model
 
     protected function status() : Attribute {
         return new Attribute(
-            get: fn ($status) => ['Ongoing', 'Done', 'Cancelled'][$status],
+            get: fn ($status) => ['Ongoing', 'Cancelled', 'Done'][$status],
         );
     }
 

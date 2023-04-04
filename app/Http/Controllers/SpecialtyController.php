@@ -14,8 +14,8 @@ class SpecialtyController extends Controller
     public function index()
     {
         // $data = Specialty::paginate(10);
-        $data = DB::table('specialties')
-                    ->leftJoin('doctors', 'specialties.id', '=', 'doctors.specialty_id')
+        $data = Specialty
+                    ::leftJoin('doctors', 'specialties.id', '=', 'doctors.specialty_id')
                     ->select('specialties.id', 'specialties.name', 'specialties.description', DB::raw('count(doctors.id) as total'))
                     ->groupBy('specialties.id')
                     ->paginate(10);

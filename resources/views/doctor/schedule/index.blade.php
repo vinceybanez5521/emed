@@ -40,7 +40,7 @@
                                 <tr>
                                     <td>{{$i++}}</td>
                                     <td>{{$schedule->date}}</td>
-                                    <td>0</td>
+                                    <td>{{$schedule->total}}</td>
                                     <td>{{$schedule->status}}</td>
                                     <td>
                                         <a href="" class="text-success" title="Done">

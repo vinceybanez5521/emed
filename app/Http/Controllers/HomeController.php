@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\Patient;
+use App\Models\Schedule;
 use App\Models\Specialty;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -39,7 +41,16 @@ class HomeController extends Controller
     }
 
     public function doctorHome() {
-        return view('doctor.home');
+        $doctor_id = Doctor::select()->where('user_id', Auth::user()->id)->get()->first()->id;
+        
+        $appointmentsTotal = Schedule
+                                ::join('appointments', 'schedules.id', '=', 'appointments.schedule_id')
+                                ->where('schedules.doctor_id', $doctor_id)
+                                ->count();
+
+        $schedulesTotal = Schedule::where('doctor_id', $doctor_id)->count();
+        // dd($appointmentsTotal);
+        return view('doctor.home', ['schedulesTotal' => $schedulesTotal, 'appointmentsTotal' => $appointmentsTotal]);
     }
 
     public function adminDashboard() {
