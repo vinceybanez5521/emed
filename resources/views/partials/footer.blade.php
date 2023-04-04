@@ -33,19 +33,16 @@
                     </p>
                     <h6 class="text-uppercase mb-4 font-weight-bold text-white">Quick Links</h6>
                     <p>
-                        <a href="#" class="text-success text-decoration-none">Home</a>
+                        <a href="{{route('patient.home')}}" class="text-success text-decoration-none">Home</a>
                     </p>
                     <p>
-                        <a href="#" class="text-success text-decoration-none">Department</a>
+                        <a href="{{url('/')}}#services" class="text-success text-decoration-none">Services</a>
                     </p>
                     <p>
-                        <a href="#" class="text-success text-decoration-none">About</a>
+                        <a href="{{url('/')}}#about" class="text-success text-decoration-none">About Us</a>
                     </p>
                     <p>
-                        <a href="#" class="text-success text-decoration-none">Log in</a>
-                    </p>
-                    <p>
-                        <a href="#" class="text-success text-decoration-none">Register</a>
+                        <a href="{{url('/')}}#contact" class="text-success text-decoration-none">Contact Us</a>
                     </p>
                 </div>
                 <div class="col-md-3">
