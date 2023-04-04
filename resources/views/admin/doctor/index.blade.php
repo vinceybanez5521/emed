@@ -52,7 +52,13 @@
                                     <td>{{$doctor->specialty->name}}</td>
                                     <td>{{$doctor->status}}</td>
                                     <td>
+                                        <a href="#" class="text-primary ms-2 ms-md-0">
+                                            <i class="fas fa-thumbs-up"></i>
+                                        </a>
                                         
+                                        <a href="#" class="text-danger d-inline-block mt-3 mt-md-0 ms-2 ms-md-3" data-bs-toggle="modal" data-bs-target="#deleteSpecialtyModal" data-doctor-id={{$doctor->id}}>
+                                            <i class="fas fa-xmark"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
