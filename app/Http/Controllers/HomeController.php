@@ -35,9 +35,13 @@ class HomeController extends Controller
     // }
 
     public function patientHome() {
-        $patient_id = Patient::select()->where('user_id', Auth::user()->id)->get()->first()->id;
-        $appointmentsTotal = Appointment::select()->where('patient_id', $patient_id)->count();
-        return view('patient.home', ['appointmentsTotal' => $appointmentsTotal]);
+        $patient = Patient::select()->where('user_id', Auth::user()->id)->get()->first();
+        $appointmentsTotal = Appointment::select()->where('patient_id', $patient->id)->count();
+
+        $is_complete = empty(trim($patient->full_name)) ? false : true;
+        // dd($is_complete);
+
+        return view('patient.home', ['appointmentsTotal' => $appointmentsTotal, 'is_complete' => $is_complete]);
     }
 
     public function doctorHome() {

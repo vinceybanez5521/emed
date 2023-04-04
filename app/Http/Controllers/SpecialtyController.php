@@ -76,7 +76,7 @@ class SpecialtyController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name' => ['required', `unique:specialties,{$id}`, 'max:255'],
+            'name' => ['required', `unique:specialties,$id`, 'max:255'],
             'description' => ['max:255'],
         ]);
 

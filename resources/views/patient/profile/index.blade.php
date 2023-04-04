@@ -4,10 +4,17 @@
     <div class="container py-5 vh-75">
         <div class="card">
             <div class="card-header d-block d-md-flex justify-content-between align-items-center">
-                <h2 class="card-title">My Account</h2>
-                <a href="{{route('patient.account.edit')}}" class="btn btn-success">Edit Account</a>
+                <h2 class="card-title">My Profile</h2>
+                <a href="{{route('patient.profile.edit')}}" class="btn btn-success">Edit Profile</a>
             </div>
             <div class="card-body mh-50 py-5">
+                @if (Session::has('msg'))
+                    <div class="alert alert-{{session('status')}} alert-dismissible fade show" role="alert">
+                        {{session('msg')}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                
                 <div class="row">
                     <div class="col-md-5 d-flex justify-content-between align-items-start">
                         @if ($patient->photo === null)
@@ -23,7 +30,7 @@
                         </div>
                         <div class="account-info mt-3">
                             <p class="lead">Address</p>
-                            <p class="lead fw-bold">{{$patient->full_name}}</p>
+                            <p class="lead fw-bold">{{$patient->address}}</p>
                         </div>
                         <div class="account-info mt-3">
                             <p class="lead">Gender</p>

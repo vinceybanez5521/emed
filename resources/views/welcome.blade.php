@@ -8,7 +8,7 @@
             <div class="hero-text text-white text-center">
                 <h1 class="display-2">The Future of Medical Care</h1>
                 <h4 class="mb-4">We believe in providing you with the best medical care</h4>
-                <a href="" class="btn btn-success btn-lg">Book a Doctor</a>
+                <a href="{{route('patient.doctors')}}" class="btn btn-success btn-lg">Book a Doctor</a>
                 <a href="{{route('apply-doctor')}}" class="btn btn-success btn-lg px-5 ms-4">Join Us</a>
             </div>
         </div>

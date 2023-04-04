@@ -47,7 +47,7 @@
 
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         @if (Auth::check() && Auth::user()->role === 'patient')
-                            <a class="dropdown-item" href="{{route('patient.account')}}">My Account</a>
+                            <a class="dropdown-item" href="{{route('patient.profile')}}">My Profile</a>
                         @endif
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();

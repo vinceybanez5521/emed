@@ -6,9 +6,9 @@ use App\Http\Controllers\Admin\ScheduleController as AdminScheduleController;
 use App\Http\Controllers\ApplyDoctorController;
 use App\Http\Controllers\Doctor\Schedule\ScheduleController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Patient\AccountController;
 use App\Http\Controllers\Patient\AppointmentController;
 use App\Http\Controllers\Patient\DoctorController;
+use App\Http\Controllers\Patient\ProfileController;
 use App\Http\Controllers\SpecialtyController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -38,12 +38,18 @@ Route::post('/apply-doctor/store', [ApplyDoctorController::class, 'store'])->nam
 // Patient
 Route::middleware(['auth', 'user-role:patient'])->group(function() {
     Route::get('/home', [HomeController::class, 'patientHome'])->name('patient.home');
+
     Route::get('/doctors', [DoctorController::class, 'index'])->name('patient.doctors');
+    
+    // AppointmentController
     Route::post('/appointments/store', [AppointmentController::class, 'store'])->name('patient.appointment.store');
     Route::get('/appointments', [AppointmentController::class, 'index'])->name('patient.appointments');
     Route::delete('/appointments/delete', [AppointmentController::class, 'destroy'])->name('patient.appointments.delete');
-    Route::get('/account', [AccountController::class, 'index'])->name('patient.account');
-    Route::get('/account/edit', [AccountController::class, 'edit'])->name('patient.account.edit');
+
+    // ProfileController
+    Route::get('/profile', [ProfileController::class, 'index'])->name('patient.profile');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('patient.profile.edit');
+    Route::put('/profile/update/{id}', [ProfileController::class, 'update'])->name('patient.profile.update');
 });
 
 // Doctor
