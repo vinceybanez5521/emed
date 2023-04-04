@@ -42,3 +42,10 @@ td {
 .mh-50 {
     min-height: 50vh;
 }
+
+.profile {
+    width: 70%;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 2px gray;
+}

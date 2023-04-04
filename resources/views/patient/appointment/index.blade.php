@@ -43,7 +43,9 @@
                                     <td>{{$appointment->schedule->date}}</td>
                                     <td>{{$appointment->status}}</td>
                                     <td>
-                                        
+                                        <a href="#" class="text-danger ms-2 ms-3" data-bs-toggle="modal" data-bs-target="#deleteAppointmentModal" data-appointment-id={{$appointment->id}}>
+                                            <i class="fas fa-trash"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach

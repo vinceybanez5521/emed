@@ -84,8 +84,12 @@ class AppointmentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        if(Appointment::destroy($request->id)) {
+            return redirect()->route('patient.appointments')->with('msg', 'Appointment deleted successfully!')->with('status', 'success');
+        } else {
+            return redirect()->back()->with('msg', 'Failed to delete appointment!')->with('status', 'danger');
+        }
     }
 }

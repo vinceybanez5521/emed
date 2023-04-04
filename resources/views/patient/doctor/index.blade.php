@@ -49,13 +49,17 @@
                                     <td>{{ $schedule->doctor->specialty->name }}</td>
                                     <td>{{ $schedule->date }}</td>
                                     <td>
-                                        <form action="{{route('patient.appointment.store')}}" method="POST">
-                                            @csrf
+                                        <div class="d-flex">
+                                            <a href="" class="btn btn-primary">Doctor Info</a>
+                                        
+                                            <form action="{{route('patient.appointment.store')}}" method="POST" class="ms-3">
+                                                @csrf
 
-                                            <input type="hidden" name="schedule_id" value={{$schedule->id}}>
-                                            
-                                            <input type="submit" value="Book Doctor" class="btn btn-success">
-                                        </form>
+                                                <input type="hidden" name="schedule_id" value={{$schedule->id}}>
+                                                
+                                                <input type="submit" value="Book Doctor" class="btn btn-success">
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
