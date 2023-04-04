@@ -30,6 +30,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>Photo</th>
                                 <th>Full Name</th>
                                 <th>Email</th>
                                 <th>Gender</th>
@@ -40,11 +41,28 @@
                             @foreach ($patients as $patient)
                                 <tr>
                                     <td>{{$i++}}</td>
+                                    <td>
+                                        @if ($patient->photo === null)
+                                            <img src="{{asset('images/user-avatar.png')}}" alt="{{$patient->first_name}}'s Photo" class="person-img">
+                                        @else
+                                            <img src="{{asset('storage/photo_uploads/' . $patient->photo)}}" alt="{{$patient->first_name}}'s Photo" class="person-img">
+                                        @endif
+                                    </td>
                                     <td>{{$patient->full_name}}</td>
                                     <td>{{$patient->user->email}}</td>
                                     <td>{{$patient->gender}}</td>
                                     <td>
+                                        <a href="{{route('admin.specialties.edit', ['id' => $patient->id])}}" class="text-info ms-2 ms-md-0">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+
+                                        <a href="{{route('admin.specialties.edit', ['id' => $patient->id])}}" class="text-primary d-inline-block mt-3 mt-md-0 ms-2 ms-md-3">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
                                         
+                                        <a href="#" class="text-danger d-inline-block mt-3 mt-md-0 ms-2 ms-md-3" data-bs-toggle="modal" data-bs-target="#deleteSpecialtyModal" data-specialty-id={{$patient->id}}>
+                                            <i class="fas fa-trash"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach

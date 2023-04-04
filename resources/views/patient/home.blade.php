@@ -2,6 +2,10 @@
 
 @section('content')
     <div class="container py-5 vh-75">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Please complete your information <a href="{{route('patient.account.edit')}}">here</a>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
         <div class="card">
             <div class="card-header">
                 <h2 class="card-title">Home</h2>

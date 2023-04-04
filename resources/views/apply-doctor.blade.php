@@ -19,7 +19,7 @@
                         @csrf
 
                         <div class="mb-3">
-                            <label for="photo" class="form-label">Photo <span class="required">*</span></label>
+                            <label for="photo" class="form-label">Photo</label>
                             <input type="file" class="form-control @error('photo') is-invalid @enderror" name="photo" id="photo" accept="image/*">
 
                             @error('photo')

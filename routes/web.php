@@ -43,6 +43,7 @@ Route::middleware(['auth', 'user-role:patient'])->group(function() {
     Route::get('/appointments', [AppointmentController::class, 'index'])->name('patient.appointments');
     Route::delete('/appointments/delete', [AppointmentController::class, 'destroy'])->name('patient.appointments.delete');
     Route::get('/account', [AccountController::class, 'index'])->name('patient.account');
+    Route::get('/account/edit', [AccountController::class, 'edit'])->name('patient.account.edit');
 });
 
 // Doctor
