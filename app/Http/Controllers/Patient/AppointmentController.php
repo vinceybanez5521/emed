@@ -15,7 +15,10 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $data = Appointment::paginate(10);
+        $patient_id = Patient::select()->where('user_id', Auth::user()->id)->get()->first()->id;
+        $data = Appointment::
+                    where('patient_id', $patient_id)
+                    ->paginate(10);
         $i = $data->firstItem();
         // dd($data->first()->schedule_id);
         return view('patient.appointment.index', ['appointments' => $data, 'i' => $i]);
