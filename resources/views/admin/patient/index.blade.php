@@ -17,10 +17,11 @@
 
                 <div class="d-block d-md-flex justify-content-between align-items-center">
                     <p class="lead">Total: <span class="fw-bold">{{ $total }}</span></p>
-                    <form action="">
+                    <form action="{{route('admin.patients')}}" method="GET">
+
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Enter keywords">
-                            <button class="btn btn-primary" type="button">Search</button>
+                            <input type="text" class="form-control" name="search" placeholder="Enter keywords" value="{{old('search')}}">
+                            <button class="btn btn-primary" type="submit">Search</button>
                         </div>
                     </form>
                 </div>

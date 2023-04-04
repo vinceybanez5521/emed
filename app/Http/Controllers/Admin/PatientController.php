@@ -11,12 +11,24 @@ class PatientController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Patient::paginate(10);
-        $total = Patient::all()->count();
-        $i = $data->firstItem();
-        return view('admin.patient.index', ['patients' => $data, 'i' => $i, 'total' => $total]);
+        $search = $request['search'];
+        
+        if(!empty($search)) {
+            $data = Patient::where('first_name', 'LIKE' , $search . '%')
+                            ->orWhere('last_name', 'LIKE' , $search . '%')
+                            ->paginate(10);
+            $data->appends($request->all());
+            $total = Patient::all()->count();
+            $i = $data->firstItem();
+            return view('admin.patient.index', ['patients' => $data, 'i' => $i, 'total' => $total]);
+        } else {
+            $data = Patient::paginate(10);
+            $total = Patient::all()->count();
+            $i = $data->firstItem();
+            return view('admin.patient.index', ['patients' => $data, 'i' => $i, 'total' => $total]);
+        }
     }
 
     /**
@@ -66,4 +78,5 @@ class PatientController extends Controller
     {
         //
     }
+
 }
